@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mở Thư Kỷ Niệm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffd6e7, #ffedf7, #e6f0ff);
+      font-family: 'Dancing Script', cursive;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .envelope-container {
+      position: relative;
+      width: 320px;
+      height: 220px;
+      margin: 0 auto;
+      cursor: pointer;
+      perspective: 1000px;
+    }
+
+    .envelope {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ff6b8b;
+      border-radius: 10px;
+      box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+      transition: transform 0.6s ease;
+      transform-style: preserve-3d;
+    }
+
+    .envelope:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-left: 160px solid transparent;
+      border-right: 160px solid transparent;
+      border-top: 100px solid #ff8da1;
+      z-index: 3;
+      transform-origin: top;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .letter {
+      position: absolute;
+      width: 90%;
+      height: 85%;
+      background: white;
+      border-radius: 5px;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      transition: transform 1s ease-in-out, top 1s ease-in-out;
+      top: 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .letter p {
+      font-size: 1.8rem;
+      color: #ff6b8b;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+
+    .open .envelope:before {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .open .letter {
+      transform: translateY(-150px);
+      top: -150px;
+    }
+
+    .instruction {
+      margin-top: 30px;
+      font-size: 1.8rem;
+      color: #ff6b8b;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .hearts-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff6b8b;
+      transform: rotate(45deg);
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.7;
+    }
+
+    .heart:before,
+    .heart:after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff6b8b;
+      border-radius: 50%;
+    }
+
+    .heart:before { top: -10px; left: 0; }
+    .heart:after  { top: 0; left: -10px; }
+
+    @keyframes float {
+      0%   { transform: translateY(0) rotate(45deg); opacity: 0.7; }
+      50%  { transform: translateY(-30px) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(0) rotate(45deg); opacity: 0.7; }
+    }
+
+    .countdown {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: #ff6b8b;
+    }
+
+    .signature {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 1.3rem;
+      color: #ff6b8b;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .envelope-container {
+        width: 280px;
+        height: 190px;
+      }
+      
+      .letter p {
+        font-size: 1.5rem;
+      }
+      
+      .instruction {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts-container" id="hearts-container"></div>
+  
+  <div class="container">
+    <h1 style="color: #ff6b8b; font-size: 2.5rem; margin-bottom: 30px;">Thư Kỷ Niệm 6 Tháng</h1>
+    
+    <div class="envelope-container" id="envelope-container">
+      <div class="envelope" id="envelope">
+        <div class="heart" style="position: relative; z-index: 4; width: 50px; height: 50px; background: white; transform: rotate(45deg);">
+          <div style="position: absolute; top: -25px; left: 0; width: 50px; height: 50px; background: white; border-radius: 50%;"></div>
+          <div style="position: absolute; top: 0; left: -25px; width: 50px; height: 50px; background: white; border-radius: 50%;"></div>
+        </div>
+      </div>
+      <div class="letter" id="letter">
+        <p>6 tháng<br>yêu nhau</p>
+      </div>
+    </div>
+    
+    <div class="instruction" id="instruction">Nhấn vào phong bì để mở thư</div>
+    <div class="countdown" id="countdown">Thư sẽ tự động mở sau: 10 giây</div>
+  </div>
+  
+  <div class="signature">Dành tặng người tớ yêu ❤️</div>
+
+  <script>
+    // Tạo trái tim bay
+    const heartsContainer = document.getElementById('hearts-container');
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.top = `${Math.random() * 100}%`;
+      heart.style.width = `${Math.random() * 20 + 10}px`;
+      heart.style.height = heart.style.width;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      heartsContainer.appendChild(heart);
+    }
+
+    const envelopeContainer = document.getElementById('envelope-container');
+    const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('letter');
+    const instruction = document.getElementById('instruction');
+    const countdown = document.getElementById('countdown');
+    
+    let count = 10;
+    let countdownInterval;
+    
+    // Hàm bắt đầu đếm ngược
+    function startCountdown() {
+      countdownInterval = setInterval(() => {
+        count--;
+        countdown.textContent = `Thư sẽ tự động mở sau: ${count} giây`;
+        
+        if (count <= 0) {
+          clearInterval(countdownInterval);
+          openEnvelope();
+        }
+      }, 1000);
+    }
+    
+    // Hàm mở phong bì
+    function openEnvelope() {
+      envelope.classList.add('open');
+      letter.classList.add('open');
+      instruction.textContent = "Đang mở thư...";
+      countdown.style.display = "none";
+      
+      // Chuyển hướng sau 2 giây
+      setTimeout(() => {
+        window.location.href = 'thu.html';
+      }, 2000);
+    }
+    
+    // Sự kiện click để mở thư
+    envelopeContainer.addEventListener('click', openEnvelope);
+    
+    // Tự động bắt đầu đếm ngược sau 1 giây
+    setTimeout(startCountdown, 1000);
+    
+    // Tạo hiệu ứng rung nhẹ cho phong bì
+    setInterval(() => {
+      envelopeContainer.style.transform = "translateY(-5px)";
+      setTimeout(() => {
+        envelopeContainer.style.transform = "translateY(0)";
+      }, 300);
+    }, 3000);
+  </script>
+</body>
+</html>

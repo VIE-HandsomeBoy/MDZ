@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kỷ Niệm 6 Tháng Siêu To Khổng Lồ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffd6e7, #ffedf7, #e6f0ff);
+      font-family: 'Playfair Display', serif;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+      position: relative;
+    }
+
+    .couple-image {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      position: absolute;
+      top: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+    }
+
+    .couple-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .envelope {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 50px rgba(255, 105, 180, 0.3);
+      padding: 40px 30px;
+      margin-top: 100px;
+      border: 1px solid #ffe6f0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.8rem;
+      color: #ff6b8b;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-style: italic;
+      color: #ff6b8b;
+      font-size: 1.3rem;
+    }
+
+    .divider {
+      height: 2px;
+      background: linear-gradient(to right, transparent, #ffc2d1, transparent);
+      margin: 20px 0;
+    }
+
+    .letter-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .letter-content p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .list {
+      margin-left: 40px;
+      margin-bottom: 20px;
+    }
+
+    .list li {
+      margin-bottom: 10px;
+      position: relative;
+      list-style: none;
+    }
+
+    .list li::before {
+      content: '❤️';
+      position: absolute;
+      left: -30px;
+    }
+
+    .highlight {
+      background: linear-gradient(transparent 60%, rgba(255, 182, 193, 0.4) 60%);
+      font-weight: bold;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 40px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: #ff6b8b;
+    }
+
+    .voucher {
+      background: #fff5f7;
+      border: 2px dashed #ff6b8b;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .voucher::before {
+      content: '🎁 VOUCHER';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff6b8b;
+      color: white;
+      padding: 0 15px;
+      font-size: 0.9rem;
+      border-radius: 20px;
+    }
+
+    .voucher p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: #ff6b8b;
+      margin-bottom: 5px;
+    }
+
+    .voucher small {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .hearts-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      width: 20px;
+      height: 20px;
+      background: #ff6b8b;
+      position: absolute;
+      transform: rotate(45deg);
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.7;
+    }
+
+    .heart:before,
+    .heart:after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff6b8b;
+      border-radius: 50%;
+    }
+
+    .heart:before { top: -10px; left: 0; }
+    .heart:after  { top: 0; left: -10px; }
+
+    @keyframes float {
+      0%   { transform: translateY(0) rotate(45deg); opacity: 0.7; }
+      50%  { transform: translateY(-30px) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(0) rotate(45deg); opacity: 0.7; }
+    }
+
+    @media (max-width: 768px) {
+      .envelope { padding: 30px 20px; margin-top: 90px; }
+      .header h1 { font-size: 2rem; }
+      .couple-image { width: 110px; height: 110px; top: -55px; }
+      .letter-content { font-size: 1rem; }
+      .list { margin-left: 30px; }
+      .signature { font-size: 1.5rem; }
+    }
+
+    #music-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background: #ff6b8b;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 999;
+      transition: all 0.3s ease;
+    }
+
+    #music-toggle:hover {
+      background: #ff4d7a;
+      transform: scale(1.05);
+    }
+
+    .ps-note {
+      text-align: center;
+      font-style: italic;
+      margin: 20px 0 5px;
+      color: #ff6b8b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts-container" id="hearts-container"></div>
+
+  <div class="container">
+    <div class="couple-image">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23ffd6e7'/%3E%3Cpath d='M60,100 C60,70 100,50 100,50 C100,50 140,70 140,100 C140,140 100,150 100,150 C100,150 60,140 60,100 Z' fill='%23ff6b8b'/%3E%3Ccircle cx='80' cy='90' r='10' fill='white'/%3E%3Ccircle cx='120' cy='90' r='10' fill='white'/%3E%3Cpath d='M80,120 Q100,130 120,120' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E" alt="Ảnh cặp đôi">
+    </div>
+
+    <div class="envelope">
+      <div class="header">
+        <h1>Thông báo khẩn: Đã có người sinh tồn thành công sau nửa năm bên tớ</h1>
+        <p>Kỷ Niệm 6 Tháng Siu To Khổng Lồ Và Siuuu Tuỵt Vời</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="letter-content">
+        <p>Cậu là người yêu dấu nhất hệ mặt trời của tớ,</p>
+        
+        <p>Dời ôi, cậu tin nổi khum? Hôm nay chính thức tròn 6 tháng kể từ cái ngày định mệnh mà cậu dũng cảm tỏ tình tớ hi hi, tớ chỉ chờ cơ hội này liền đồng í làm người yêu cậu. Một người tuyệt vời và hoàn hảo trong mắt tớ. Nửa năm! Đủ để:</p>
+        
+        <ul class="list">
+          <li>Tớ có thể phát hiện ra cậu có thể bướng và nhõng nhẽo như một người cơn của tớ v. Đôi khi tớ thầm nghĩ là ồ thế là cảm giác của 1 người bố khi có 1 người con gái đây sao (+1 kinh nghiệm)</li>
+          <li>Tớ chứng kiến những lần cãi vã chỉ vì cả 2 muốn tốt cho nhau. Hì! tớ cũng hiểu vậy nma tớ muốn bao bọc che chở và luôn muốn cậu hạnh phúc nên tớ cũng khum khum thiệt gì đâu mà những điều tớ làm cho cậu khiến tớ rất rất hạnh phúc và không hề mỏi mệt gì.</li>
+          <li>Cả 2 đã đi trải nghiệm nhìuuuu nơi có những bộ ảnh siuuu siuuu đẹp ( mỗi tội trình độ chụp ảnh của tớ còn khá sú hì hì.</li>
+          <li><span class="highlight">Và quan trọng nhất: Đủ để tớ chắc 1 điều là: Yêu cậu là 1 quyết định đúng đắn và tuyệt vời nhất đời tớ.</span> Cậu là động lực thúc đẩy tớ cố găng, là người luôn đứng sau giúp đỡ tớ ( Mặc dù đôi khi rất rất cứng đầu khiến tớ cáu lên )</li>
+        </ul>
+        
+        <p>Nửa năm qua, với tớ không hề bình thường mà nó rất rất đáng nhớ qua những lần cãi nhau. Nhiều khi tớ còn cảm thấy rất rất lạ và hỏi tại sao các cặp đôi khác cãi nhau vì bất đồng hay thứ khác mà tớ với cậu lại cãi nhau vì muốn tốt cho nhau hì...</p>
+        
+        <p>Cảm ơn cậu vì đã:</p>
+        <ul class="list">
+          <li>Kiên nhẫn lắng nghe và hỏi han tớ.</li>
+          <li>Chịu đựng được những lúc thất thường của tớ.</li>
+          <li>Và trên hết, cảm ơn cậu vì đã chọn ở bên một người " Đặc Biệt " như tớ. Cậu chính là Wifi ổn định nhất trong cuộc đời đầy "lag" của tớ!</li>
+        </ul>
+        
+        <p>Nhân dịp tròn nửa năm " Thoát ế vinh quang "này, tớ muốn nói: " Tớ yêu cậu nhìuuuuu lémmm"</p>
+        <p>Yêu đến mức:</p>
+        <ul class="list">
+          <li>Sẵn sàng nhường miếng ngon nhất cho cậu(mà không hối hận.. nhiều)</li>
+          <li>Chịu thay đổi chịu làm tất cả các đồ thủ công mặc dù trước h tớ chưa từng làm</li>
+          <li>Và thậm chí... sẵn sàng đổi mạng sống để cứu cậu khỏi 1 con gián :>.</li>
+        </ul>
+        
+        <p>Chúc mừng 6 tháng yêu nhau, "đồng chí" thân yêu của tớ! Mong rằng chúng ta sẽ tiếp tục "gây rối" cùng nhau trong nhiều, nhiều nửa năm nữa. Hãy cùng nhau viết tiếp câu chuyện tình yêu vừa ngọt ngào như cậu :>, vừa hài hước như cậu :> và đôi khi lộn xộn như phim hành động nhé!</p>
+        
+        <p><span class="highlight">Yêu cậu nhiều hơn số dung lượng trong máy cậu vậy! (Tràn ngập bộ nhớ nhớ nhớ nhớ em ...)</span></p>
+        
+        <p class="ps-note">P.S: Tớ tặng cậu một voucher đặc biệt!</p>
+        <div class="voucher">
+          <p>1 cái ôm siêu chặt + 1 nụ hôn bất ngờ</p>
+          <small>(Có hiệu lực vĩnh viễn, không cần đổi trả)</small>
+        </div>
+        
+        <div class="signature">
+          Chồng iuuuu của cậu<br>
+          Ngày 1 tháng 7 năm 2025
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="bg-music" src="HonCaYeu-DucPhuc-6222425.mp3" autoplay loop></audio>
+  <button id="music-toggle">🔇 Bật nhạc</button>
+
+  <script>
+    const heartsContainer = document.getElementById('hearts-container');
+    for (let i = 0; i < 40; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.top = `${Math.random() * 100}%`;
+      heart.style.width = `${Math.random() * 20 + 10}px`;
+      heart.style.height = heart.style.width;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      heartsContainer.appendChild(heart);
+    }
+
+    // Tạo âm thanh nền bằng Web Audio API
+     const music = document.getElementById('bg-music');
+    const toggleBtn = document.getElementById('music-toggle');
+    let isPlaying = false;
+
+    toggleBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        music.pause();
+        toggleBtn.textContent = '🔇 Bật nhạc';
+      } else {
+        music.play().catch(() => {});
+        toggleBtn.textContent = '🔊 Tắt nhạc';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    function autoPlayOnce() {
+      console.log('Auto-playing music');
+      if (!isPlaying) {
+        music.play().catch(() => {});
+        toggleBtn.textContent = '🔊 Tắt nhạc';
+        isPlaying = true;
+      }
+    };
+    
+    // Hiệu ứng chữ ký
+    const signature = document.querySelector('.signature');
+    signature.addEventListener('mouseover', () => {
+      signature.style.transform = 'scale(1.05)';
+      signature.style.transition = 'transform 0.3s ease';
+    });
+    
+    signature.addEventListener('mouseout', () => {
+      signature.style.transform = 'scale(1)';
+    });
+  </script>
+</body>
+</html>
